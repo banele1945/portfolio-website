@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects by Nkosiyabo Mdladla — software engineering, mobile, web, and embedded systems work.">
+
+    <title>Projects | Nkosiyabo Mdladla</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>NM</h1>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header page-header--compact">
+        <div class="page-header-content">
+            <h1>Projects</h1>
+            <p>
+                Browse my work in a compact view. Open any project for full documentation,
+                codebase links, and screenshots.
+            </p>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div id="projects-grid" class="projects-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- PROJECT DETAIL PANEL -->
+    <div id="project-panel" class="project-panel" aria-hidden="true">
+        <div class="project-panel-backdrop" data-close-panel></div>
+
+        <div class="project-panel-dialog" role="dialog" aria-modal="true" aria-labelledby="panel-title">
+            <header class="panel-header">
+                <div class="panel-header-text">
+                    <span id="panel-type" class="project-type"></span>
+                    <h2 id="panel-title"></h2>
+                    <p id="panel-year" class="panel-year"></p>
+                </div>
+                <button class="panel-close" type="button" data-close-panel aria-label="Close project details">&times;</button>
+            </header>
+
+            <nav class="panel-tabs" role="tablist" aria-label="Project sections">
+                <button class="panel-tab is-active" type="button" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+                <button class="panel-tab" type="button" role="tab" aria-selected="false" data-tab="documentation">Documentation</button>
+                <button class="panel-tab" type="button" role="tab" aria-selected="false" data-tab="codebase">Codebase</button>
+                <button class="panel-tab" type="button" role="tab" aria-selected="false" data-tab="screenshots">Screenshots</button>
+            </nav>
+
+            <div class="panel-body">
+                <div id="tab-overview" class="panel-tab-content is-active" role="tabpanel">
+                    <p id="panel-description" class="panel-description"></p>
+                    <h3 class="panel-subtitle">Key Features</h3>
+                    <ul id="panel-features" class="panel-list"></ul>
+                    <div id="panel-tags" class="project-tags"></div>
+                </div>
+
+                <div id="tab-documentation" class="panel-tab-content" role="tabpanel" hidden>
+                    <div id="panel-documentation" class="panel-prose"></div>
+                </div>
+
+                <div id="tab-codebase" class="panel-tab-content" role="tabpanel" hidden>
+                    <p class="panel-note">
+                        The full source code lives on GitHub. Use the links below to explore the repository,
+                        or review the project structure summary.
+                    </p>
+                    <div id="panel-code-links" class="panel-link-row"></div>
+                    <h3 class="panel-subtitle">Project Structure</h3>
+                    <pre id="panel-structure" class="panel-code"></pre>
+                </div>
+
+                <div id="tab-screenshots" class="panel-tab-content" role="tabpanel" hidden>
+                    <div id="panel-gallery" class="gallery-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMAGE LIGHTBOX -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+        <button class="lightbox-close" type="button" aria-label="Close preview">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nkosiyabo Mdladla. All rights reserved.</p>
+    </footer>
+
+    <script src="js/projects-data.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>
