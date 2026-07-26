@@ -1,115 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projects by Nkosiyabo Mdladla — software engineering, mobile, web, and embedded systems work.">
+/**
+ * PROJECT DATA
+ * ------------
+ * Add each project here. The projects page renders compact cards from this file.
+ *
+ * For employers to see full project material:
+ *  1. github     — link to the full repository (primary codebase view)
+ *  2. demo       — live app / video demo (optional)
+ *  3. docs       — PDF report, slides, or local doc (optional)
+ *  4. documentation — HTML shown in the "Documentation" tab (write your own)
+ *  5. structure  — file-tree text shown in the "Codebase" tab
+ *  6. highlights — bullet list of key implementation points
+ *
+ * Optional: place project files under assets/projects/<project-id>/
+ * (e.g. README exports, reports, architecture diagrams)
+ */
 
-    <title>Projects | Nkosiyabo Mdladla</title>
+const PROJECTS = [
+    {
+        id: 'autoguardian',
+        title: 'AutoGuardian',
+        type: 'Mobile + Embedded Systems',
+        year: '2025',
+        summary:
+            'Vehicle monitoring app with live GPS, trip history, alerts, and embedded hardware simulation.',
+        description:
+            'AutoGuardian is a vehicle safety and monitoring solution combining a mobile application with embedded hardware. Users authenticate, track live location, review trip history, receive alerts, and configure device settings. A Wokwi simulation demonstrates sensor data collection integrated with the app workflow.',
+        features: [
+            'User registration and login',
+            'Live GPS tracking with map views',
+            'Trip history with detailed records',
+            'Real-time alerts and notifications',
+            'Embedded simulation via Wokwi',
+        ],
+        tags: ['Mobile App', 'GPS', 'Embedded Systems', 'Wokwi'],
+        links: {
+            github: 'https://github.com/banele1945/AutoGuardian', // TODO: https://github.com/your-username/autoguardian
+            demo: '',
+            docs: '', // TODO: e.g. assets/projects/autoguardian/report.pdf
+        },
+        structure: `autoguardian/
+├── mobile-app/          # UI screens & app logic
+├── backend/             # API / data services (if applicable)
+├── firmware/            # Embedded / sensor code
+└── docs/                # Design docs & reports`,
+        documentation: `
+            <h3>Problem</h3>
+            <p>Vehicle owners need affordable monitoring for location, trip records, and safety alerts.</p>
+            <h3>Solution</h3>
+            <p>A mobile app paired with embedded hardware to collect and display vehicle data in real time.</p>
+            <h3>My Role</h3>
+            <p><!-- TODO: e.g. Full-stack development, mobile UI, embedded integration --></p>
+            <h3>Architecture</h3>
+            <p><!-- TODO: Describe app ↔ API ↔ hardware flow --></p>
+        `,
+        screenshots: [
+            { src: 'assets/images/AutoGurdian/mobile_app/Login_Screen.png', alt: 'Login Screen' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Registration_Screen.png', alt: 'Registration Screen' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Home_Page_Screen.png', alt: 'Home Page' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Home_Page_Menu_Screen.png', alt: 'Home Menu' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Live_Location_Page_(Standard).png', alt: 'Live Location' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Live_Location_Screen_(Setellite).png', alt: 'Satellite View' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Trip_History_Screen.png', alt: 'Trip History' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Trip_History_Detail_Screen.png', alt: 'Trip Detail' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Alerts_Screen.png', alt: 'Alerts' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Settings_Screen.png', alt: 'Settings' },
+            { src: 'assets/images/AutoGurdian/mobile_app/Settings_2_Screen.png', alt: 'Settings (Extended)' },
+            { src: 'assets/images/AutoGurdian/simulation/Wokwi_Simulation.png', alt: 'Wokwi Simulation', wide: true },
+        ],
+    },
+    {
+        id: 'rescart',
+        title: 'Rescart',
+        type: 'Web / Mobile Application',
+        year: '2025',
+        summary:
+            'Restaurant ordering platform with store browsing, checkout, and in-app chat.',
+        description:
+            'Rescart enables users to log in, browse restaurants, select a store, place orders, and chat with vendors or support. The project demonstrates end-to-end application flow from authentication through order completion.',
+        features: [
+            'Secure user login',
+            'Restaurant and store selection',
+            'Order placement workflow',
+            'Integrated chat messaging',
+        ],
+        tags: ['Web App', 'E-Commerce', 'Authentication', 'Chat'],
+        links: {
+            github: '', // TODO: https://github.com/your-username/rescart
+            demo: '',
+            docs: '',
+        },
+        structure: `rescart/
+├── frontend/            # UI & client logic
+├── backend/             # Server / API
+├── database/            # Schema & migrations
+└── docs/                # Project documentation`,
+        documentation: `
+            <h3>Problem</h3>
+            <p>Local restaurants need a simple digital ordering channel for customers.</p>
+            <h3>Solution</h3>
+            <p>A multi-store ordering platform with real-time chat for order coordination.</p>
+            <h3>My Role</h3>
+            <p><!-- TODO: Describe your contribution --></p>
+            <h3>Implementation Notes</h3>
+            <p><!-- TODO: Key technical decisions, stack, challenges solved --></p>
+        `,
+        screenshots: [
+            { src: 'assets/images/Rescart/login.png', alt: 'Login', wide: true },
+            { src: 'assets/images/Rescart/home_page.png', alt: 'Home Page', wide: true },
+            { src: 'assets/images/Rescart/store_selection.png', alt: 'Store Selection', wide: true },
+            { src: 'assets/images/Rescart/order.png', alt: 'Order', wide: true },
+            { src: 'assets/images/Rescart/chats.png', alt: 'Chats', wide: true },
+        ],
+    },
+    {
+    id: 'snake-game',
+    title: 'Snake Game',
+    type: 'Desktop Game',
+    year: '2024',
+    summary:
+        'Classic Snake game developed in Java using Swing, featuring real-time movement, collision detection, score tracking, and replay functionality.',
+    description:
+        'A desktop implementation of the classic Snake game built entirely in Java using the Swing framework. Players control the snake using either the arrow keys or WASD, collect randomly generated fruit to increase their score, and avoid collisions with walls or their own body. The project demonstrates object-oriented programming principles, event-driven programming, graphical user interface development, and real-time game logic. This was one of my early Java projects and helped build my understanding of object-oriented programming, event-driven development, and game design principles',
+    features: [
+        'Keyboard controls (Arrow Keys & WASD)',
+        'Real-time snake movement using Swing Timer',
+        'Random fruit generation',
+        'Snake growth after collecting fruit',
+        'Collision detection with walls and snake body',
+        'Score tracking',
+        'Play Again option after Game Over'
+    ],
+    tags: [
+        'Java',
+        'Java Swing',
+        'Desktop Application',
+        'Game Development',
+        'OOP'
+    ],
+    links: {
+        github: 'https://github.com/banele1945/Snake_Game', // TODO: Add repository link
+        demo: '',
+        docs: '',
+    },
+    structure: `snake-game/
+└── SnakeGame.java       # Complete Java source code`,
+    documentation: `
+        <h3>Problem</h3>
+        <p>Create a desktop version of the classic Snake game to strengthen my understanding of Java programming, graphical user interfaces, event-driven programming, and game development concepts.</p>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+        <h3>Solution</h3>
+        <p>Developed a Java Swing application where players control a snake that grows by collecting randomly generated fruit while avoiding collisions with the game boundaries and itself. The game tracks the player's score and allows restarting after a game-over event.</p>
 
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/projects.css">
-</head>
-<body>
+        <h3>My Role</h3>
+        <p>I independently designed and developed the entire application, including the game loop, keyboard controls, collision detection, scoring system, fruit generation, rendering logic, and replay functionality using Java Swing.</p>
 
-    <div class="background-glow"></div>
-
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>NM</h1>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="certifications.html">Certifications</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="page-header page-header--compact">
-        <div class="page-header-content">
-            <h1>Projects</h1>
-            <p>
-                Browse my work in a compact view. Open any project for full documentation,
-                codebase links, and screenshots.
-            </p>
-        </div>
-    </section>
-
-    <section class="projects-section">
-        <div id="projects-grid" class="projects-grid" aria-live="polite"></div>
-    </section>
-
-    <!-- PROJECT DETAIL PANEL -->
-    <div id="project-panel" class="project-panel" aria-hidden="true">
-        <div class="project-panel-backdrop" data-close-panel></div>
-
-        <div class="project-panel-dialog" role="dialog" aria-modal="true" aria-labelledby="panel-title">
-            <header class="panel-header">
-                <div class="panel-header-text">
-                    <span id="panel-type" class="project-type"></span>
-                    <h2 id="panel-title"></h2>
-                    <p id="panel-year" class="panel-year"></p>
-                </div>
-                <button class="panel-close" type="button" data-close-panel aria-label="Close project details">&times;</button>
-            </header>
-
-            <nav class="panel-tabs" role="tablist" aria-label="Project sections">
-                <button class="panel-tab is-active" type="button" role="tab" aria-selected="true" data-tab="overview">Overview</button>
-                <button class="panel-tab" type="button" role="tab" aria-selected="false" data-tab="documentation">Documentation</button>
-                <button class="panel-tab" type="button" role="tab" aria-selected="false" data-tab="codebase">Codebase</button>
-                <button class="panel-tab" type="button" role="tab" aria-selected="false" data-tab="screenshots">Screenshots</button>
-            </nav>
-
-            <div class="panel-body">
-                <div id="tab-overview" class="panel-tab-content is-active" role="tabpanel">
-                    <p id="panel-description" class="panel-description"></p>
-                    <h3 class="panel-subtitle">Key Features</h3>
-                    <ul id="panel-features" class="panel-list"></ul>
-                    <div id="panel-tags" class="project-tags"></div>
-                </div>
-
-                <div id="tab-documentation" class="panel-tab-content" role="tabpanel" hidden>
-                    <div id="panel-documentation" class="panel-prose"></div>
-                </div>
-
-                <div id="tab-codebase" class="panel-tab-content" role="tabpanel" hidden>
-                    <p class="panel-note">
-                        The full source code lives on GitHub. Use the links below to explore the repository,
-                        or review the project structure summary.
-                    </p>
-                    <div id="panel-code-links" class="panel-link-row"></div>
-                    <h3 class="panel-subtitle">Project Structure</h3>
-                    <pre id="panel-structure" class="panel-code"></pre>
-                </div>
-
-                <div id="tab-screenshots" class="panel-tab-content" role="tabpanel" hidden>
-                    <div id="panel-gallery" class="gallery-grid"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- IMAGE LIGHTBOX -->
-    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview">
-        <button class="lightbox-close" type="button" aria-label="Close preview">&times;</button>
-        <img id="lightbox-img" src="" alt="">
-        <p id="lightbox-caption" class="lightbox-caption"></p>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Nkosiyabo Mdladla. All rights reserved.</p>
-    </footer>
-
-    <script src="js/projects-data.js"></script>
-    <script src="js/projects.js"></script>
-</body>
-</html>
+        <h3>Implementation Notes</h3>
+        <p>The application uses Java Swing for the graphical interface and a Swing Timer to drive the game loop at a fixed interval. The snake's body is stored using an ArrayList of Point objects, allowing efficient movement and growth by adding a new head and removing the tail during each update. Collision detection is implemented by checking wall boundaries and whether the snake intersects itself. Fruit positions are generated randomly within the game grid, and keyboard listeners capture both arrow key and WASD input for player movement.</p>
+    `,
+    screenshots: [
+        { src: 'assets/images/Snake_Game/gameplay.png', alt: 'Snake Gameplay', wide: true },
+        { src: 'assets/images/Snake_Game/gameover.png', alt: 'Game Over Screen', wide: true },
+    ],
+},
+];
