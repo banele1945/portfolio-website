@@ -1,20 +1,3 @@
-/**
- * PROJECT DATA
- * ------------
- * Add each project here. The projects page renders compact cards from this file.
- *
- * For employers to see full project material:
- *  1. github     — link to the full repository (primary codebase view)
- *  2. demo       — live app / video demo (optional)
- *  3. docs       — PDF report, slides, or local doc (optional)
- *  4. documentation — HTML shown in the "Documentation" tab (write your own)
- *  5. structure  — file-tree text shown in the "Codebase" tab
- *  6. highlights — bullet list of key implementation points
- *
- * Optional: place project files under assets/projects/<project-id>/
- * (e.g. README exports, reports, architecture diagrams)
- */
-
 const PROJECTS = [
     {
         id: 'autoguardian',
@@ -34,7 +17,7 @@ const PROJECTS = [
         ],
         tags: ['Mobile App', 'GPS', 'Embedded Systems', 'Wokwi'],
         links: {
-            github: '', // TODO: https://github.com/your-username/autoguardian
+            github: 'https://github.com/banele1945/AutoGuardian', // TODO: https://github.com/your-username/autoguardian
             demo: '',
             docs: '', // TODO: e.g. assets/projects/autoguardian/report.pdf
         },
@@ -112,4 +95,54 @@ const PROJECTS = [
             { src: 'assets/images/Rescart/chats.png', alt: 'Chats', wide: true },
         ],
     },
+    {
+    id: 'snake-game',
+    title: 'Snake Game',
+    type: 'Desktop Game',
+    year: '2024',
+    summary:
+        'Classic Snake game developed in Java using Swing, featuring real-time movement, collision detection, score tracking, and replay functionality.',
+    description:
+        'A desktop implementation of the classic Snake game built entirely in Java using the Swing framework. Players control the snake using either the arrow keys or WASD, collect randomly generated fruit to increase their score, and avoid collisions with walls or their own body. The project demonstrates object-oriented programming principles, event-driven programming, graphical user interface development, and real-time game logic. This was one of my early Java projects and helped build my understanding of object-oriented programming, event-driven development, and game design principles',
+    features: [
+        'Keyboard controls (Arrow Keys & WASD)',
+        'Real-time snake movement using Swing Timer',
+        'Random fruit generation',
+        'Snake growth after collecting fruit',
+        'Collision detection with walls and snake body',
+        'Score tracking',
+        'Play Again option after Game Over'
+    ],
+    tags: [
+        'Java',
+        'Java Swing',
+        'Desktop Application',
+        'Game Development',
+        'OOP'
+    ],
+    links: {
+        github: 'https://github.com/banele1945/Snake_Game', // TODO: Add repository link
+        demo: '',
+        docs: '',
+    },
+    structure: `snake-game/
+└── SnakeGame.java       # Complete Java source code`,
+    documentation: `
+        <h3>Problem</h3>
+        <p>Create a desktop version of the classic Snake game to strengthen my understanding of Java programming, graphical user interfaces, event-driven programming, and game development concepts.</p>
+
+        <h3>Solution</h3>
+        <p>Developed a Java Swing application where players control a snake that grows by collecting randomly generated fruit while avoiding collisions with the game boundaries and itself. The game tracks the player's score and allows restarting after a game-over event.</p>
+
+        <h3>My Role</h3>
+        <p>I independently designed and developed the entire application, including the game loop, keyboard controls, collision detection, scoring system, fruit generation, rendering logic, and replay functionality using Java Swing.</p>
+
+        <h3>Implementation Notes</h3>
+        <p>The application uses Java Swing for the graphical interface and a Swing Timer to drive the game loop at a fixed interval. The snake's body is stored using an ArrayList of Point objects, allowing efficient movement and growth by adding a new head and removing the tail during each update. Collision detection is implemented by checking wall boundaries and whether the snake intersects itself. Fruit positions are generated randomly within the game grid, and keyboard listeners capture both arrow key and WASD input for player movement.</p>
+    `,
+    screenshots: [
+        { src: 'assets/images/Snake_Game/gameplay.png', alt: 'Snake Gameplay', wide: true },
+        { src: 'assets/images/Snake_Game/gameover.png', alt: 'Game Over Screen', wide: true },
+    ],
+},
 ];
